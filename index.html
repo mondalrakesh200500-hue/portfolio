@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rakesh Mondal | Dev Portfolio</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #1a1e2b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+      border-left: 5px solid #f97316;
+      padding-left: 1.2rem;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(254, 254, 254, 0.94);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid #e9eef3;
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f97316, #7c3aed);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d3a4b;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #f97316;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem 0;
+      background: linear-gradient(145deg, #ffffff 0%, #fff7ed 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #ffedd5;
+      color: #c2410c;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #ffedd5 0%, #fed7aa 80%);
+      padding: 0 0.2rem;
+      color: #9a3412;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: #334155;
+      max-width: 90%;
+      margin: 1.5rem 0;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #f97316;
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #ea580c;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #fed7aa;
+      color: #c2410c;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+      transform: translateY(-2px);
+    }
+
+    .hero-avatar {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar-circle {
+      background: linear-gradient(145deg, #f97316, #fbbf24);
+      width: 280px;
+      height: 280px;
+      border-radius: 42% 58% 49% 51% / 51% 49% 51% 49%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 35px -15px rgba(249, 115, 22, 0.2);
+      overflow: hidden;
+    }
+
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Skills */
+    .skills-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+      transform: scale(1.02);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #edf2f7;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0.8rem 0;
+    }
+
+    .project-tags span {
+      background: #f1f5f9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #f97316;
+    }
+
+    .project-link:hover {
+      gap: 10px;
+    }
+
+    /* About + Contact */
+    .about-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      background: #fffaf5;
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .contact-info {
+      flex: 1.2;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .contact-detail i {
+      width: 2rem;
+      font-size: 1.4rem;
+      color: #f97316;
+    }
+
+    .contact-detail a {
+      color: #1a1e2b;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail a:hover {
+      color: #f97316;
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      background: #fff7ed;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #f97316;
+      transition: all 0.2s;
+      font-size: 1.3rem;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: #f97316;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Contact Form */
+    .form-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.02);
+      border: 1px solid #edf2f7;
+    }
+
+    input, textarea {
+      padding: 0.9rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #e2e8f0;
+      background: #fefefe;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    textarea {
+      border-radius: 24px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+
+    /* Custom Footer */
+    .custom-footer {
+      background: #1a1e2b;
+      color: #e2e8f0;
+      padding: 2.5rem 0 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f97316, #fbbf24);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 0.3rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #f97316;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: #cbd5e1;
+      background: rgba(255,255,255,0.05);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: #f97316;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid #334155;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .highlight {
+      color: #f97316;
+    }
+
+    .email-chip {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .email-chip i {
+      color: #f97316;
+    }
+
+    /* Image Upload Section */
+    .photo-upload-section {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    
+    .photo-input-label {
+      background: #f97316;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+    
+    .photo-input-label:hover {
+      background: #ea580c;
+      transform: scale(1.02);
+    }
+    
+    #photoInput {
+      display: none;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      section {
+        padding: 3rem 0;
+      }
+      .nav-container {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-desc {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+      .avatar-circle {
+        width: 200px;
+        height: 200px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+      }
+      .about-wrap {
+        padding: 1.5rem;
+      }
+      .contact-info {
+        width: 100%;
+      }
+      .skills-box {
+        justify-content: center;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">RAKESH<span style="color:#f97316;">.</span>MONDAL</div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-bolt" style="margin-right: 5px;"></i> Creative Developer & Designer
+        </div>
+        <h1>
+          Building digital <span class="hero-highlight">experiences</span><br>
+          that inspire & perform.
+        </h1>
+        <p class="hero-desc">
+          I'm Rakesh Mondal — front-end architect and UI specialist. I craft modern, responsive, and user-first web experiences with a touch of creativity.
+        </p>
+        <!-- email address display prominently in hero area -->
+        <div class="email-chip">
+          <i class="fas fa-envelope"></i>
+          <span>mondalrakesh3790@gmail.com</span>
+          <i class="fas fa-copy" style="cursor: pointer; opacity: 0.7;" onclick="copyEmailToClipboard()" title="Copy email"></i>
+        </div>
+        <div class="btn-group" style="margin-top: 1.5rem;">
+          <a href="#work" class="btn btn-primary"><i class="fas fa-arrow-down"></i> View projects</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-comment"></i> Let's talk</a>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-circle" id="avatarCircle">
+          <i class="fas fa-code" id="defaultIcon"></i>
+          <img id="profileImage" src="" alt="Rakesh Mondal" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <!-- Photo Upload Button -->
+        <div class="photo-upload-section">
+          <input type="file" id="photoInput" accept="image/*">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Strip -->
+  <div class="container" style="margin-top: -2rem; margin-bottom: 1rem;">
+    <div class="skills-box">
+      <span class="skill-tag">CSS</span>
+      <span class="skill-tag">HTML</span>
+      <span class="skill-tag">UI/UX</span>
+      <span class="skill-tag">Game Dev</span>
+      <span class="skill-tag">React</span>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Featured projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1: Portfolio Website -->
+        <div class="project-card">
+          <div class="project-img" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+            <i class="fas fa-briefcase" style="font-size: 3.5rem;"></i>
+          </div>
+          <div class="project-info">
+            <h3>Modern Portfolio</h3>
+            <p>A fully responsive portfolio website with smooth animations, dark mode support, and optimized performance. Built with React & Tailwind.</p>
+            <div class="project-tags">
+              <span>React</span><span>Tailwind</span><span>Framer</span>
+            </div>
+            <a href="#" class="project-link">Live demo <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Project 2: Game -->
+        <div class="project-card">
+          <div class="project-img" style="background: linear-gradient(145deg, #7c3aed, #a855f7);">
+            <i class="fas fa-gamepad" style="font-size: 3rem;"></i>
+          </div>
+          <div class="project-info">
+            <h3>Cosmic Quest</h3>
+            <p>An interactive browser-based space adventure game. Collect stars, avoid asteroids, and beat high scores. Built with vanilla JS and Canvas API.</p>
+            <div class="project-tags">
+              <span>JavaScript</span><span>Canvas</span><span>Game Dev</span>
+            </div>
+            <a href="#" class="project-link">Play game <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Project 3: Creative App -->
+        <div class="project-card">
+          <div class="project-img" style="background: linear-gradient(135deg, #059669, #10b981);">
+            <i class="fas fa-palette" style="font-size: 3rem;"></i>
+          </div>
+          <div class="project-info">
+            <h3>Pixel Studio</h3>
+            <p>Creative drawing tool with real-time collaboration features. Users can create art, share boards, and export PNGs.</p>
+            <div class="project-tags">
+              <span>Next.js</span><span>WebSockets</span><span>Tailwind</span>
+            </div>
+            <a href="#" class="project-link">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About + Contact Section -->
+  <section id="about">
+    <div class="container">
+      <div class="about-wrap">
+        <div class="about-text">
+          <h2 class="section-title" style="border-left-color: #f97316; margin-bottom: 1rem;">About me</h2>
+          <p style="margin-bottom: 1rem; font-size: 1.05rem;">👋 Hey, I'm Rakesh Mondal — a front-end developer and designer who loves turning ideas into beautiful, functional web experiences. With 4+ years of experience, I've collaborated with startups and agencies to build products that users love.</p>
+          <p style="margin-bottom: 1rem;">I believe great code and great design go hand in hand. My approach combines clean, performant code with intuitive UI/UX. When I'm not coding, I enjoy contributing to open-source, sketching UI concepts, and mentoring aspiring developers.</p>
+          <div class="skills-box" style="margin-top: 1rem;">
+            <span class="skill-tag"><i class="fas fa-paintbrush"></i> UI/UX Design</span>
+            <span class="skill-tag"><i class="fas fa-code"></i> Frontend Dev</span>
+            <span class="skill-tag"><i class="fas fa-gamepad"></i> Game Dev</span>
+          </div>
+        </div>
+        <div class="contact-info" id="contact">
+          <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem;">Let's connect</h3>
+          <p style="margin-bottom: 1.2rem; color: #334155;">Got a project in mind? Let's bring your ideas to life.</p>
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:mondalrakesh3790@gmail.com">mondalrakesh3790@gmail.com</a>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 8116407242</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kolkata, India / Remote</span>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/mondalrakesh3790-ai" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rakesh-mandal-b55aa5350" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:mondalrakesh3790@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="form-card">
+        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Send a message ✨</h3>
+        <p style="margin-bottom: 1rem; color: #475569;">or directly email: <strong style="color:#f97316;">mondalrakesh3790@gmail.com</strong></p>
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem; max-width: 600px;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <input type="text" id="nameInput" placeholder="Your name" style="flex:1;" required>
+            <input type="email" id="emailInput" placeholder="Email address" style="flex:1;" required>
+          </div>
+          <textarea id="msgInput" rows="3" placeholder="Tell me about your project or just say hi..."></textarea>
+          <button type="submit" class="btn btn-primary" style="width: fit-content; border: none;"><i class="fas fa-paper-plane"></i> Send message</button>
+          <p id="formFeedback" style="font-size: 0.85rem; color: #ea580c; margin-top: 0;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Custom Footer -->
+<footer class="custom-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Rakesh Mondal</h3>
+        <p>Crafting code & creativity</p>
+        <p style="font-size: 0.75rem; margin-top: 0.3rem;"><i class="fas fa-envelope"></i> mondalraksh3790@gmail.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#work">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/mondalrakesh3790-ai" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rakesh-mandal-b55aa5350" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:mondalrakesh3790@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Rakesh Mondal — <span class="highlight">Portfolio by Ani</span> | Built with <i class="fas fa-heart" style="color: #f97316;"></i> for the dev community</p>
+      <p style="font-size: 0.7rem; margin-top: 0.5rem;">Email: mondalrakesh3790@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Photo upload functionality
+  const photoInput = document.getElementById('photoInput');
+  const profileImage = document.getElementById('profileImage');
+  const defaultIcon = document.getElementById('defaultIcon');
+  const avatarCircle = document.getElementById('avatarCircle');
+
+  if (photoInput) {
+    photoInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profileImage.src = e.target.result;
+          profileImage.style.display = 'block';
+          defaultIcon.style.display = 'none';
+          // Save to localStorage so it persists after page refresh
+          localStorage.setItem('profilePhoto', e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  // Load saved photo from localStorage
+  const savedPhoto = localStorage.getItem('profilePhoto');
+  if (savedPhoto && profileImage && defaultIcon) {
+    profileImage.src = savedPhoto;
+    profileImage.style.display = 'block';
+    defaultIcon.style.display = 'none';
+  }
+
+  // Function to copy email to clipboard
+  function copyEmailToClipboard() {
+    const email = "mondalrakesh3790@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      const feedbackMsg = document.getElementById('formFeedback');
+      if(feedbackMsg) {
+        const originalText = feedbackMsg.textContent;
+        feedbackMsg.textContent = "📧 Email copied to clipboard!";
+        feedbackMsg.style.color = "#2b9348";
+        setTimeout(() => {
+          if(originalText && !feedbackMsg.textContent.includes("Thanks")) {
+            feedbackMsg.textContent = originalText;
+          } else {
+            setTimeout(() => { feedbackMsg.textContent = ""; }, 2000);
+          }
+        }, 2000);
+      } else {
+        alert("Email copied: " + email);
+      }
+    }).catch(() => {
+      alert("Could not copy, but email is: " + email);
+    });
+  }
+
+  // Contact form handling
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput')?.value.trim() || '';
+      const userEmail = document.getElementById('emailInput')?.value.trim() || '';
+      feedback.textContent = `✨ Thanks ${name || 'there'}! I'll reply at ${userEmail || 'your email'} soon.`;
+      feedback.style.color = "#2b9348";
+      form.reset();
+      setTimeout(() => {
+        feedback.textContent = "";
+      }, 4000);
+    });
+  }
+
+  // Smooth scroll for all internal anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Extra handling for buttons
+  const viewBtn = document.querySelector('.btn-primary[href="#work"]');
+  if(viewBtn) {
+    viewBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  const talkBtn = document.querySelector('.btn-outline[href="#contact"]');
+  if(talkBtn) {
+    talkBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+</script>
+</body>
+</html>
